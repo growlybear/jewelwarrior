@@ -4,7 +4,7 @@ define('dom', [], function () {
 
     function hasClass(el, classToCheck) {
         var regex = new RegExp('(^|\\s)' + classToCheck + '(\\s|$)');
-        return regex.test(el.className);
+        return regex.test(el.className || '');
     }
 
     function addClass(el, newClass) {
