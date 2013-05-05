@@ -2,16 +2,20 @@
 define('dom', [], function () {
     'use strict';
 
-    function hasClass(el, className) {
-        return 'checking for class ...';
+    function hasClass(el, classToCheck) {
+        var regex = new RegExp('(^|\\s)' + classToCheck + '(\\s|$)');
+        return regex.test(el.className);
     }
 
-    function addClass(el, className) {
-        return 'adding class ...';
+    function addClass(el, newClass) {
+        if (!hasClass(el, newClass)) {
+            el.className += ' ' + newClass;
+        }
     }
 
-    function removeClass(el, className) {
-        return 'removing class ...';
+    function removeClass(el, oldClass) {
+        var regex = new RegExp('(^|\\s)' + oldClass + '(\\s|$)');
+        el.className = el.className.replace(regex, ' ');
     }
 
     return {

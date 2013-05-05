@@ -13,7 +13,5 @@ require.config({
 require(['sizzle', 'dom', 'game'], function ($, dom, game) {
     'use strict';
 
-    console.log($('#game'));
-    console.log(dom.addClass());
-    console.log(game);
+    game.showScreen('#splash-screen');
 });
