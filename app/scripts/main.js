@@ -1,19 +1,19 @@
 require.config({
     paths: {
-        jquery: '../components/jquery/jquery',
-        bootstrap: 'vendor/bootstrap'
+        sizzle: '../components/sizzle/sizzle'
     },
     shim: {
-        bootstrap: {
-            deps: ['jquery'],
-            exports: 'jquery'
-        }
+        // bootstrap: {
+        //     deps: ['jquery'],
+        //     exports: 'jquery'
+        // }
     }
 });
 
-require(['app', 'jquery', 'bootstrap'], function (app, $) {
+require(['sizzle', 'dom', 'game'], function ($, dom, game) {
     'use strict';
-    // use app here
-    console.log(app);
-    console.log('Running jQuery %s', $().jquery);
+
+    console.log($('#game'));
+    console.log(dom.addClass());
+    console.log(game);
 });

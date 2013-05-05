@@ -1,0 +1,10 @@
+{
+  "name": "jewelwarrior",
+  "version": "0.0.0",
+  "dependencies": {
+    "requirejs": "~2.1.4",
+    "modernizr": "~2.6.2",
+    "sizzle": "~1.9.3"
+  },
+  "devDependencies": {}
+}
