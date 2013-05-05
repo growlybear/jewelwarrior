@@ -74,6 +74,16 @@ module.exports = function (grunt) {
                     }
                 }
             },
+            functional: {
+                options: {
+                    middleware: function (connect) {
+                        return [
+                            mountFolder(connect, '.tmp'),
+                            mountFolder(connect, 'app')
+                        ];
+                    }
+                }
+            },
             dist: {
                 options: {
                     middleware: function (connect) {
@@ -120,6 +130,10 @@ module.exports = function (grunt) {
                     urls: ['http://localhost:<%= connect.options.port %>/index.html']
                 }
             }
+        },
+        casperjs: {
+            options: {},
+            files: ['test/functional/**/*.js']
         },
         coffee: {
             dist: {
@@ -302,6 +316,8 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-casperjs');
+
     grunt.renameTask('regarde', 'watch');
 
     grunt.registerTask('server', function (target) {
@@ -324,6 +340,13 @@ module.exports = function (grunt) {
         'concurrent:test',
         'connect:test',
         'mocha'
+    ]);
+
+    grunt.registerTask('test:func', [
+        'clean:server',
+        'concurrent:test',
+        'connect:functional',
+        'casperjs'
     ]);
 
     grunt.registerTask('build', [
