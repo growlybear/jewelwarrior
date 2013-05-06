@@ -127,6 +127,7 @@ module.exports = function (grunt) {
             all: {
                 options: {
                     run: false,
+                    reporter: 'Spec', // Nyan
                     urls: ['http://localhost:<%= connect.options.port %>/index.html']
                 }
             }
