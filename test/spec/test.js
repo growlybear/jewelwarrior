@@ -5,6 +5,7 @@
 function createEl(type, attrs) {
     attrs = attrs || {};
     var key,
+        // no error-checking for valid element types
         el = document.createElement(type);
     for (key in attrs) {
         el.setAttribute(key, attrs[key]);
